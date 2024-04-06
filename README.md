@@ -7,11 +7,11 @@
 <img src="https://github.com/Ardacanuysal/FiratRandevu/blob/main/FiratRandevu/FIRAT%20RANDEVU.png" width="40%" />
   </div>
 <div align="center">
-  <img src="https://github.com/Ardacanuysal/FiratRandevu/blob/main/FiratRandevu/src/assets/images/1.png" width="40%" />
+  <img src="https://github.com/Ardacanuysal/FiratRandevu/blob/main/FiratRandevu/src/assets/images/1.png" width="80%" />
   </div>
   <div align="center">
-   <img src="https://github.com/Ardacanuysal/FiratRandevu/blob/main/FiratRandevu/src/assets/images/2.png" width="40%" />
+   <img src="https://github.com/Ardacanuysal/FiratRandevu/blob/main/FiratRandevu/src/assets/images/2.png" width="80%" />
      </div>
 <div align="center">
-   <img src="https://github.com/Ardacanuysal/FiratRandevu/blob/main/FiratRandevu/src/assets/images/3.png" width="40%" />
+   <img src="https://github.com/Ardacanuysal/FiratRandevu/blob/main/FiratRandevu/src/assets/images/3.png" width="80%" />
 </div>
