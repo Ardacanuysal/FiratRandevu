@@ -10,14 +10,13 @@ import {
 import React from 'react';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-
 const App = () => {
   return (
     <SafeAreaView style={{backgroundColor: 'white'}}>
-      <ImageBackground>
+      <View style={{margintop: windowWidth * 19}}>
         <View style={{alignItems: 'center'}}>
           <View>
-            <Image source={require('././')} />
+            <Image source={require('../../assets/images/firatLogo.png')} />
           </View>
         </View>
         <View style={{alignItems: 'center'}}>
@@ -96,7 +95,14 @@ const App = () => {
             </View>
           </View>
         </View>
-        <View style={{alignItems: 'center'}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'flex-end',
+            marginTop: windowWidth * 0.04,
+            marginRight: windowWidth * 0.04,
+            height: windowWidth * 0.1,
+          }}>
           <View
             style={{
               flexDirection: 'row',
@@ -105,29 +111,25 @@ const App = () => {
               paddingHorizontal: windowWidth * 0.03,
               paddingVertical: windowWidth * 0.01,
               borderRadius: windowWidth * 0.07,
-              justifyContent: 'space-around',
               width: windowWidth * 0.3,
             }}>
-            <View>
-              <Image source={require('./Login.png')} />
-            </View>
-            <View>
-              <Text
+            <View style={{flexDirection: 'row'}}>
+              <Image
                 style={{
-                  fontSize: windowWidth * 0.04,
-                  fontWeight: '700',
-                  color: 'white',
-                }}>
+                  height: windowWidth * 0.05,
+                  width: windowWidth * 0.05,
+                }}
+                source={require('../../assets/icons/SignIn.png')}></Image>
+            </View>
+            <View style={{alignSelf: 'center', marginLeft: windowWidth * 0.06}}>
+              <Text style={{color: 'white', fontWeight: windowWidth * 0.3}}>
                 Giriş
               </Text>
             </View>
           </View>
         </View>
-      </ImageBackground>
+      </View>
     </SafeAreaView>
   );
 };
-
 export default App;
-
-const styles = StyleSheet.create({});
