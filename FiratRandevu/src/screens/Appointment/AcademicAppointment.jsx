@@ -31,12 +31,22 @@ const AcademicAppointment = () => {
           </View>
         </View>
       </View>
-      <ScrollView>
+      <ScrollView style={{height: windowWidth * 1}}>
         <View style={styles.Card}>
           <Image
             style={styles.img}
             source={require('../../assets/images/ibrahimtrkogl.png')}></Image>
-          <View style={styles.gryCard}></View>
+          <View style={styles.gryCard}>
+            <View style={styles.infoContain}>
+              <Text style={{color: '#78113E'}}>Prof.Dr</Text>
+              <Text style={{color: '#78113E', fontSize: windowWidth * 0.05}}>
+                İBRAHİM TÜRKOĞLU
+              </Text>
+            </View>
+            <View style={styles.downloadBtn}>
+              <Text>dslaşaksd</Text>
+            </View>
+          </View>
         </View>
       </ScrollView>
     </View>
@@ -111,5 +121,18 @@ const styles = StyleSheet.create({
     borderWidth: windowWidth * 0.01,
     borderLeftWidth: windowWidth * 0,
     borderColor: '#ffff',
+  },
+  infoContain: {
+    backgroundColor: 'red',
+    marginLeft: windowWidth * 0.04,
+    marginTop: windowWidth * 0.02,
+    width: windowWidth * 0.55,
+    height: windowWidth * 0.1,
+  },
+  downloadBtn: {
+    backgroundcolor: '#78113E',
+    width: windowWidth * 1,
+    height: windowWidth * 1,
+    marginLeft: windowWidth * 3,
   },
 });
