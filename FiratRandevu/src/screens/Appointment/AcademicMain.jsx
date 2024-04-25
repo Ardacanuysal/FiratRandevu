@@ -42,6 +42,9 @@ const AcademicAppointment = () => {
               <Text style={{color: '#78113E', fontSize: windowWidth * 0.05}}>
                 İBRAHİM TÜRKOĞLU
               </Text>
+              <View style={styles.btnDownld}>
+                <Text stlye={styles.txtDownld}>Ofis Saatlerini indir</Text>
+              </View>
             </View>
           </View>
         </View>
@@ -70,7 +73,9 @@ class App extends Component {
   }
   render() {
     const {selectedStartDate} = this.state;
-    const startDate = selectedStartDate ? selectedStartDate.toString(selectedStartDate) : '';
+    const startDate = selectedStartDate
+      ? selectedStartDate.toString(selectedStartDate)
+      : '';
     return (
       <View style={styles.calendarContainer}>
         <CalendarPicker onDateChange={this.onDateChange} />
@@ -180,7 +185,17 @@ const styles = StyleSheet.create({
   },
   btnDownld: {
     backgroundColor: '#78113E',
-    width: windowWidth * 1,
+    width: windowWidth * 0.5,
+    height: windowWidth * 0.08,
+    borderRadius: windowWidth * 0.3,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: windowWidth * 0.02,
+    flexDirection: 'row',
+  },
+  txtDownld: {
+    fontSize: windowWidth * 0.05,
+    color: '#fff',
   },
 });
 
