@@ -1,3 +1,4 @@
+import React, {Component} from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,14 +7,13 @@ import {
   Dimensions,
   ScrollView,
 } from 'react-native';
-import React from 'react';
+import CalendarPicker from 'react-native-calendar-picker';
 
 const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
 
 const AcademicAppointment = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.Header}>
         <View style={styles.assignsHeader}>
           <View style={styles.BackContainer}>
@@ -31,7 +31,7 @@ const AcademicAppointment = () => {
           </View>
         </View>
       </View>
-      <ScrollView style={{height: windowWidth * 1}}>
+      <ScrollView style={styles.scrollView}>
         <View style={styles.Card}>
           <Image
             style={styles.img}
@@ -43,19 +43,69 @@ const AcademicAppointment = () => {
                 İBRAHİM TÜRKOĞLU
               </Text>
             </View>
-            <View style={styles.downloadBtn}>
-              <Text>dslaşaksd</Text>
-            </View>
           </View>
         </View>
+        <App />
       </ScrollView>
+      <View style={styles.randevuAl}>
+        <View style={styles.btnRandevuAl}>
+          <Text style={styles.txtRandevuAl}>RANDEVU AL</Text>
+        </View>
+      </View>
     </View>
   );
 };
-
-export default AcademicAppointment;
-
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedStartDate: null,
+    };
+    this.onDateChange = this.onDateChange.bind(this);
+  }
+  onDateChange(date) {
+    this.setState({
+      selectedStartDate: date,
+    });
+  }
+  render() {
+    const {selectedStartDate} = this.state;
+    const startDate = selectedStartDate ? selectedStartDate.toString(selectedStartDate) : '';
+    return (
+      <View style={styles.calendarContainer}>
+        <CalendarPicker onDateChange={this.onDateChange} />
+        <Text>SELECTED DATE:{startDate}</Text>
+      </View>
+    );
+  }
+}
 const styles = StyleSheet.create({
+  txtRandevuAl: {color: '#fff'},
+  btnRandevuAl: {
+    width: windowWidth * 0.8,
+    height: windowWidth * 0.1,
+    justifyContent: 'center',
+    borderRadius: windowWidth * 0.2,
+    alignSelf: 'center',
+    backgroundColor: '#78113E',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  randevuAl: {
+    width: windowWidth * 1,
+    height: windowWidth * 0.2,
+  },
+  container: {
+    flex: 1,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  calendarContainer: {
+    flex: 1,
+    alignSelf: 'flex-start',
+    flexDirection: 'column',
+  },
   Header: {
     backgroundColor: '#78113E',
     width: windowWidth * 1,
@@ -123,16 +173,15 @@ const styles = StyleSheet.create({
     borderColor: '#ffff',
   },
   infoContain: {
-    backgroundColor: 'red',
     marginLeft: windowWidth * 0.04,
     marginTop: windowWidth * 0.02,
     width: windowWidth * 0.55,
     height: windowWidth * 0.1,
   },
-  downloadBtn: {
-    backgroundcolor: '#78113E',
+  btnDownld: {
+    backgroundColor: '#78113E',
     width: windowWidth * 1,
-    height: windowWidth * 1,
-    marginLeft: windowWidth * 3,
   },
 });
+
+export default AcademicAppointment;
