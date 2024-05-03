@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
+import {Component} from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,12 +7,15 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  TouchableOpacity,
+  Modal,
 } from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 
 const windowWidth = Dimensions.get('window').width;
 
 const AcademicAppointment = () => {
+  const [visible, setVisible] = useState(false);
   return (
     <View style={styles.container}>
       <View style={styles.Header}>
@@ -43,7 +47,7 @@ const AcademicAppointment = () => {
                 İBRAHİM TÜRKOĞLU
               </Text>
               <View style={styles.btnDownld}>
-                <Text stlye={styles.txtDownld}>Ofis Saatlerini indir</Text>
+                <Text style={styles.txtDownld}>Ofis Saatlerini indir</Text>
               </View>
             </View>
           </View>
@@ -66,16 +70,16 @@ class App extends Component {
     };
     this.onDateChange = this.onDateChange.bind(this);
   }
+
   onDateChange(date) {
     this.setState({
       selectedStartDate: date,
     });
   }
+
   render() {
     const {selectedStartDate} = this.state;
-    const startDate = selectedStartDate
-      ? selectedStartDate.toString(selectedStartDate)
-      : '';
+    const startDate = selectedStartDate ? selectedStartDate.toString() : '';
     return (
       <View style={styles.calendarContainer}>
         <CalendarPicker onDateChange={this.onDateChange} />
@@ -84,6 +88,7 @@ class App extends Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   txtRandevuAl: {color: '#fff'},
   btnRandevuAl: {
@@ -194,8 +199,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   txtDownld: {
-    fontSize: windowWidth * 0.05,
-    color: '#fff',
+    fontSize: windowWidth * 0.04,
+    color: 'white',
   },
 });
 
