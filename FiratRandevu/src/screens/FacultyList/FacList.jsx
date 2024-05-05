@@ -27,11 +27,17 @@ const FacList = () => {
           </View>
         </View>
       </View>
-      <ScrollView>
-        <View style={styles.FacNameCard}>
-          <Text style={styles.FacNametxt}>TEKNOLOJİ FAKÜLTESİ</Text>
-        </View>
+      <View style={styles.FacNameCard}>
+        <Text style={styles.FacNametxt}>TEKNOLOJİ FAKÜLTESİ</Text>
+      </View>
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <View style={styles.CategoriesCells}></View>
+        <View style={styles.CategoriesCells}></View>
+        <View style={styles.CategoriesCells}></View>
+        <View style={styles.CategoriesCells}></View>
+        <View style={styles.CategoriesCells}></View>
       </ScrollView>
+      <View style={styles.footer}></View>
     </View>
   );
 };
@@ -39,6 +45,9 @@ const FacList = () => {
 export default FacList;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   headerContainer: {
     backgroundColor: '#78113E',
     width: '100%',
@@ -63,6 +72,7 @@ const styles = StyleSheet.create({
     color: '#ffff',
     marginLeft: 5,
   },
+  ScrollView: {},
   FacNameCard: {
     marginTop: windowWidth * 0.03,
     width: windowWidth * 0.9,
@@ -75,7 +85,27 @@ const styles = StyleSheet.create({
   },
   FacNametxt: {
     color: '#ffff',
-    fontWeight:'600',
-    fontSize:windowWidth*0.06,
+    fontWeight: '600',
+    fontSize: windowWidth * 0.06,
+  },
+  CategoriesCells: {
+    width: windowWidth * 0.85,
+    height: windowWidth * 0.13,
+    backgroundColor: '#D9D9D9',
+    marginTop: windowWidth * 0.03,
+    alignSelf: 'center',
+    borderRadius: windowWidth * 0.03,
+    borderWidth: windowWidth * 0.003,
+    borderColor: '#78113E',
+  },
+  footer: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: windowWidth * 0.09,
+    backgroundColor: '#78113E',
+    alignItems: 'center',
+    justifyContent: 'center', 
   },
 });
