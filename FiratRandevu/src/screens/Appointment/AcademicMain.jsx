@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Component} from 'react';
+import {RndBtn, CalendarModal} from '../../components';
 import {
   StyleSheet,
   Text,
@@ -9,13 +10,20 @@ import {
   ScrollView,
   TouchableOpacity,
   Modal,
+  Pressable,
 } from 'react-native';
+
 import CalendarPicker from 'react-native-calendar-picker';
+import Modalcontext from '../../components/modalContext/Modalcontext';
 
 const windowWidth = Dimensions.get('window').width;
 
 const AcademicAppointment = () => {
   const [visible, setVisible] = useState(false);
+  const [selectedStartDate, setSelectedStartDate] = useState(new Date());
+  const modalfunc = () => {
+    setVisible(!visible);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.Header}>
@@ -25,7 +33,7 @@ const AcademicAppointment = () => {
               style={styles.BackIcon}
               source={require('../../assets/icons/back.png')}
             />
-            <Text style={{color: 'white', alignSelf: 'center'}}>Back</Text>
+            <Text style={{color: 'white', alignSelf: 'center'}}>Bac k</Text>
           </View>
           <View style={styles.LogoContainer}>
             <Image
@@ -52,59 +60,39 @@ const AcademicAppointment = () => {
             </View>
           </View>
         </View>
-        <App />
+        <App
+          selectedStartDate={selectedStartDate}
+          setSelectedDate={setSelectedStartDate}
+        />
       </ScrollView>
-      <View style={styles.randevuAl}>
-        <View style={styles.btnRandevuAl}>
-          <Text style={styles.txtRandevuAl}>RANDEVU AL</Text>
-        </View>
-      </View>
+      <CalendarModal AcceptBtn={modalfunc} visible={visible}>
+        <Modalcontext  selectedDate={selectedStartDate}  />
+      </CalendarModal>
+      <RndBtn modalfunc={modalfunc} />
     </View>
   );
 };
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedStartDate: null,
-    };
-    this.onDateChange = this.onDateChange.bind(this);
-  }
+const App = props => {
+  const {selectedStartDate, setSelectedDate, selectedEndDate} = props;
 
-  onDateChange(date) {
-    this.setState({
-      selectedStartDate: date,
-    });
-  }
+  const onDateChange = date => {
+    setSelectedDate(date);
+  };
 
-  render() {
-    const {selectedStartDate} = this.state;
-    const startDate = selectedStartDate ? selectedStartDate.toString() : '';
-    return (
-      <View style={styles.calendarContainer}>
-        <CalendarPicker onDateChange={this.onDateChange} />
-        <Text>SELECTED DATE:{startDate}</Text>
-      </View>
-    );
-  }
-}
+  const startDate = selectedStartDate ? selectedStartDate.toString() : '';
+  return (
+    <View style={styles.calendarContainer}>
+      <CalendarPicker onDateChange={onDateChange} 
+      selectedStartDate={selectedStartDate}
+      selectedEndDate={selectedEndDate}
+    onPressDay={onDateChange}
+      />
+      <Text>SELECTED DATE:{selectedStartDate.toString()}</Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  txtRandevuAl: {color: '#fff'},
-  btnRandevuAl: {
-    width: windowWidth * 0.8,
-    height: windowWidth * 0.1,
-    justifyContent: 'center',
-    borderRadius: windowWidth * 0.2,
-    alignSelf: 'center',
-    backgroundColor: '#78113E',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  randevuAl: {
-    width: windowWidth * 1,
-    height: windowWidth * 0.2,
-  },
   container: {
     flex: 1,
   },

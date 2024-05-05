@@ -16,7 +16,7 @@ const rectangleWidth = windowWidth * 0.9;
 export class Main extends Component {
   render() {
     return (
-      <ScrollView>
+      <View>
         <View style={styles.headerContainer}>
           <View style={styles.FiratUniversity}>
             <View style={styles.FiratUniversity}>
@@ -40,7 +40,7 @@ export class Main extends Component {
             <Text style={styles.faculty}>TENOLOJİ FAKÜLTESİ</Text>
             <Text style={styles.role}>Akademik Kadro</Text>
           </View>
-        </View>
+        </View><ScrollView>
         <View
           style={{backgroundColor: 'gray', height: windowWidth * 0.002}}></View>
         <View>
@@ -171,6 +171,7 @@ export class Main extends Component {
           </View>
         </View>
       </ScrollView>
+      </View>
     );
   }
 }
