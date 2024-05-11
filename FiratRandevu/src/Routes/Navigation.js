@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 function Navigation() {
   return (
     <Stack.Navigator
-      initialRouteName="AcademicKadro"
+      initialRouteName="Login"
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="Home" component={AcademicAppointment} />
       <Stack.Screen name="Login" component={Login} />
