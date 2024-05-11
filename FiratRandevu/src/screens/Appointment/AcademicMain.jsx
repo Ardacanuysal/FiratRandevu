@@ -18,8 +18,9 @@ import Modalcontext from '../../components/modalContext/Modalcontext';
 
 const windowWidth = Dimensions.get('window').width;
 
-const AcademicAppointment = () => {
+const AcademicAppointment = props => {
   const [visible, setVisible] = useState(false);
+  const {navigation} = props;
   const [selectedStartDate, setSelectedStartDate] = useState(new Date());
   const modalfunc = () => {
     setVisible(!visible);
@@ -28,13 +29,15 @@ const AcademicAppointment = () => {
     <View style={styles.container}>
       <View style={styles.Header}>
         <View style={styles.assignsHeader}>
-          <View style={styles.BackContainer}>
-            <Image
-              style={styles.BackIcon}
-              source={require('../../assets/icons/back.png')}
-            />
-            <Text style={{color: 'white', alignSelf: 'center'}}>Bac k</Text>
-          </View>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <View style={styles.BackContainer}>
+              <Image
+                style={styles.BackIcon}
+                source={require('../../assets/icons/back.png')}
+              />
+              <Text style={{color: 'white', alignSelf: 'center'}}>Back</Text>
+            </View>
+          </TouchableOpacity>
           <View style={styles.LogoContainer}>
             <Image
               style={styles.HeaderIcon}
@@ -66,7 +69,7 @@ const AcademicAppointment = () => {
         />
       </ScrollView>
       <CalendarModal AcceptBtn={modalfunc} visible={visible}>
-        <Modalcontext  selectedDate={selectedStartDate}  />
+        <Modalcontext selectedDate={selectedStartDate} />
       </CalendarModal>
       <RndBtn modalfunc={modalfunc} />
     </View>
@@ -82,10 +85,11 @@ const App = props => {
   const startDate = selectedStartDate ? selectedStartDate.toString() : '';
   return (
     <View style={styles.calendarContainer}>
-      <CalendarPicker onDateChange={onDateChange} 
-      selectedStartDate={selectedStartDate}
-      selectedEndDate={selectedEndDate}
-    onPressDay={onDateChange}
+      <CalendarPicker
+        onDateChange={onDateChange}
+        selectedStartDate={selectedStartDate}
+        selectedEndDate={selectedEndDate}
+        onPressDay={onDateChange}
       />
       <Text>SELECTED DATE:{selectedStartDate.toString()}</Text>
     </View>

@@ -1,23 +1,41 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-
-export default function card() {
+import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import React from 'react';
+import styles from './styles';
+import {person} from '../../assets/images';
+const Card = props => {
+  const {
+    personImage = person,
+    title = 'Prof. Dr.',
+    name = 'Engin Avci',
+    email = 'email: enginavci@firat.edu.tr',
+  } = props;
   return (
     <View style={styles.Card}>
-    <Image
-      style={styles.img}
-      source={require('../../assets/images/ibrahimtrkogl.png')}></Image>
-    <View style={styles.gryCard}>
-      <View style={styles.infoContain}>
-        <Text style={{color: '#78113E'}}>Prof.Dr</Text>
-        <Text style={{color: '#78113E', fontSize: windowWidth * 0.05}}>
-          İBRAHİM TÜRKOĞLU
-        </Text>
+      <Image style={styles.infoTeachimg} source={personImage}></Image>
+      <View style={styles.infoTeachbox}>
+        <Text style={styles.infoTeachtxt}>{title}</Text>
+        <Text style={styles.infoTeachName}>{name}</Text>
+        <Text style={styles.infoTeachMail}>{email}</Text>
+        <View style={{flexDirection: 'row'}}>
+          <TouchableOpacity>
+            <Image
+              style={styles.infoTeachIcons}
+              source={require('../../assets/icons/linkedin.png')}></Image>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              style={styles.infoTeachIcons}
+              source={require('../../assets/icons/medium.png')}></Image>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={styles.btnDownld}></View>
+      <View style={styles.cardBtn}>
+        <View style={styles.Btn}>
+          <Text style={styles.btnTxt}>Randevu Al</Text>
+        </View>
+      </View>
     </View>
-  </View>
-  )
-}
+  );
+};
 
-const styles = StyleSheet.create({})
+export default Card;

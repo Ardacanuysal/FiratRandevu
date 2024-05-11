@@ -8,7 +8,7 @@ import {
   Component,
 } from 'react-native';
 import React from 'react';
-import cardstyle from '../../components/AcademicianCard/cardstyle';
+import cardstyle from '../../components/AcademicianCard/styles';
 cardstyle;
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;

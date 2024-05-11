@@ -6,11 +6,16 @@ import {
   View,
   Dimensions,
   ImageBackground,
+  Touchable,
+  TouchableOpacity,
+  TextInput,
 } from 'react-native';
 import React from 'react';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
-const App = () => {
+
+const Login = props => {
+  const {navigation} = props;
   return (
     <SafeAreaView style={{backgroundColor: 'white'}}>
       <View style={{margintop: windowWidth * 19}}>
@@ -113,19 +118,22 @@ const App = () => {
               borderRadius: windowWidth * 0.07,
               width: windowWidth * 0.3,
             }}>
-            <View style={{flexDirection: 'row'}}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
+              style={{flexDirection: 'row'}}>
               <Image
                 style={{
                   height: windowWidth * 0.05,
                   width: windowWidth * 0.05,
                 }}
                 source={require('../../assets/icons/SignIn.png')}></Image>
-            </View>
-            <View style={{alignSelf: 'center', marginLeft: windowWidth * 0.06}}>
-              <Text style={{color: 'white', fontWeight: windowWidth * 0.3}}>
-                Giriş
-              </Text>
-            </View>
+              <View
+                style={{alignSelf: 'center', marginLeft: windowWidth * 0.06}}>
+                <Text style={{color: 'white', fontWeight: windowWidth * 0.3}}>
+                  Giriş
+                </Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
         <View
@@ -171,4 +179,4 @@ const App = () => {
     </SafeAreaView>
   );
 };
-export default App;
+export default Login;

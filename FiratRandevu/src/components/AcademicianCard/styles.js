@@ -1,71 +1,7 @@
-import React, {Component} from 'react';
-import {
-  SafeAreaView,
-  Text,
-  View,
-  Dimensions,
-  StyleSheet,
-  Image,
-  ScrollView,
-} from 'react-native';
-import {Card} from '../../components/index';
-import {person,person2} from '../../assets/images';
-
+import {StyleSheet, Text, View,Dimensions} from 'react-native';
 const windowWidth = Dimensions.get('window').width;
 const rectangleWidth = windowWidth * 0.9;
 
-const AcademicKadro = () => {
-  return (
-    <View>
-      <View style={styles.headerContainer}>
-        <View style={styles.FiratUniversity}>
-          <View style={styles.FiratUniversity}>
-            <Image
-              style={styles.logo}
-              source={require('../../assets/images/Logo.png')}
-            />
-            <Text style={styles.universityName}>Fırat Üniversitesi</Text>
-          </View>
-        </View>
-      </View>
-      <View style={styles.rectangleContainer}>
-        <View style={[styles.rectangle, {width: rectangleWidth}]}>
-          <View style={styles.infoContainer}>
-            <Text style={styles.studentName}>Arda Can Uysal</Text>
-            <Text style={styles.department}>Yazılım Mühendisliği</Text>
-            <Text style={styles.grade}>3. Sınıf</Text>
-          </View>
-        </View>
-        <View style={styles.facultyContainer}>
-          <Text style={styles.faculty}>TENOLOJİ FAKÜLTESİ</Text>
-          <Text style={styles.role}>Akademik Kadro</Text>
-        </View>
-      </View>
-      <ScrollView>
-        <View
-          style={{backgroundColor: 'gray', height: windowWidth * 0.002}}></View>
-        <Card
-          personImage={person}
-          title={'Prof. Dr.'}
-          name={'Engin Avci'}
-          email={'email: enginavci@firat.edu.tr'}
-        />
-        <Card
-          personImage={person2}
-          title={'Prof. Dr.'}
-          name={'Engin Avci'}
-          email={'email: enginavci@firat.edu.tr'}
-        />
-          <Card
-            personImage={person}
-            title={'Prof. Dr.'}
-            name={'Engin Avci'}
-            email={'email: enginavci@firat.edu.tr'}
-          />
-      </ScrollView>
-    </View>
-  );
-};
 
 const styles = StyleSheet.create({
   headerContainer: {
@@ -187,4 +123,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AcademicKadro;
+export default styles;
