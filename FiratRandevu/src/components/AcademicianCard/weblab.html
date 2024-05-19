@@ -1,0 +1,21 @@
+# Gerekli kütüphaneleri yükleyin
+import numpy as np
+import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.tree import DecisionTreeClassifier
+from sklearn import tree
+import matplotlib.pyplot as plt
+
+# İris veri setini yükleyin
+iris = load_iris()
+X = iris.data
+y = iris.target
+
+# Karar ağacı sınıflandırıcısını oluşturun ve eğitin
+clf = DecisionTreeClassifier()
+clf = clf.fit(X, y)
+
+# Karar ağacını çizdirin
+plt.figure(figsize=(20,10))
+tree.plot_tree(clf, feature_names=list(iris.feature_names), class_names=list(iris.target_names), filled=True)
+plt.show()

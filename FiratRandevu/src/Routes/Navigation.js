@@ -12,13 +12,12 @@ const Stack = createNativeStackNavigator();
 function Navigation() {
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+      initialRouteName="FacultyList"
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="Home" component={AcademicAppointment} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="FacultyList" component={FacList} />
       <Stack.Screen name="AcademicKadro" component={AcademicKadro} />
-    
     </Stack.Navigator>
   );
 }

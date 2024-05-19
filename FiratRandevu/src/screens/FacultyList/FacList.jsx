@@ -18,21 +18,20 @@ const FacList = () => {
     <View>
       <View style={styles.headerContainer}>
         <View style={styles.FiratUniversity}>
-          <View style={styles.FiratUniversity}>
-            <Image
-              style={styles.logo}
-              source={require('../../assets/images/Logo.png')}
-            />
-            <Text style={styles.universityName}>Fırat Üniversitesi</Text>
-          </View>
+          <Image
+            style={styles.logo}
+            source={require('../../assets/images/Logo.png')}
+          />
+          <Text style={styles.universityName}>Fırat Üniversitesi</Text>
         </View>
       </View>
       <View style={styles.FacNameCard}>
         <Text style={styles.FacNametxt}>TEKNOLOJİ FAKÜLTESİ</Text>
       </View>
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
-        <View style={styles.CategoriesCells}></View>
-        <View style={styles.CategoriesCells}></View>
+        <View style={styles.CategoriesCells}>
+          <Text style={styles.CategoriesTxt}>Yazılım Mühendisliği</Text>
+        </View>
         <View style={styles.CategoriesCells}></View>
         <View style={styles.CategoriesCells}></View>
         <View style={styles.CategoriesCells}></View>
@@ -47,6 +46,9 @@ export default FacList;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  scrollView: {
+    backgroundColor: 'black',
   },
   headerContainer: {
     backgroundColor: '#78113E',
@@ -72,7 +74,6 @@ const styles = StyleSheet.create({
     color: '#ffff',
     marginLeft: 5,
   },
-  ScrollView: {},
   FacNameCard: {
     marginTop: windowWidth * 0.03,
     width: windowWidth * 0.9,
@@ -97,15 +98,25 @@ const styles = StyleSheet.create({
     borderRadius: windowWidth * 0.03,
     borderWidth: windowWidth * 0.003,
     borderColor: '#78113E',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   footer: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
+    width: windowWidth * 2,
+    height: windowWidth * 0.2,
+    marginTop: windowWidth * 0.0,
     height: windowWidth * 0.09,
     backgroundColor: '#78113E',
     alignItems: 'center',
-    justifyContent: 'center', 
+    position: 'relative',
+    bottom:0,
+    justifyContent: 'center',
+  },
+  Categorytxt: {},
+  scrollViewContent: {
+    backgroundColor: 'white',
+    alignItems: 'center',
+    marginTop: windowWidth * 0.03,
+    marginBottom: windowWidth * 0.3,
   },
 });
